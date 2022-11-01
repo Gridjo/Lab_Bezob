@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<input type="text" class="textf" name="color">
+<input type="button" name="color_ok" value="ok" onclick="shifr()">
+
+<script type="text/javascript">
+	function shifr(argument) {
+		var string = document.querySelector(".textf").value
+		var regex = new RegExp('[a-z]');
+		var regex1 = new RegExp('[A-Z]');
+		var res = "";
+		for(var i=0;i <= string.length-1;i++){
+			if(regex.test(string[i])){
+				var string1 =string[i];
+				var code = 122-(string1.charCodeAt() - 97);
+				string1 = String.fromCharCode(code);
+				res+=string1
+			}
+			if(regex1.test(string[i])){
+				var string1 =string[i];
+				var code = 90 -(string1.charCodeAt() - 65);
+				string1 = String.fromCharCode(code);
+				res+=string1
+			}
+			if(string[i]==" "){
+				res+=" "
+			}
+		}
+		document.querySelector(".textf").value=res;
+	}
+	
+</script>
+</body>
+</html>
